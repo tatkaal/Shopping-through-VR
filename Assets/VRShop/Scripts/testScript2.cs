@@ -61,7 +61,7 @@ public class testScript2 : MonoBehaviour
     {
         Debug.Log("inside coroutine............");
 
-        for (int i = 0; i < getListOfUrl.Count; i++)
+        for (int i = 0; i < 4; i++) //getListOfUrl.Count
         {
             UnityWebRequest request2 = UnityWebRequestTexture.GetTexture(getListOfUrl[i]);
             yield return request2.SendWebRequest();

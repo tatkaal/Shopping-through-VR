@@ -9,4 +9,9 @@ public static class GlobalControl2
     {
         get; set;
     }
+
+    public static int runOrNot
+    {
+        get; set;
+    }
 }

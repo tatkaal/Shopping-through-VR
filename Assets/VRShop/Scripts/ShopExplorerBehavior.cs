@@ -202,8 +202,11 @@ public class ShopExplorerBehavior : MonoBehaviour {
             }
 
             // Update the content, if needs to be
-            wrapper.SetArticle(articles[wrapper.articleLoadIndexId]);
-
+            if (GlobalControl2.runOrNot==0)
+            {
+                Debug.Log("Run or not :...........  "+GlobalControl2.runOrNot);
+                wrapper.SetArticle(articles[wrapper.articleLoadIndexId]);
+            }
         }
 
         // Cosmetic change to hide article monitors at the boundaries of the wall

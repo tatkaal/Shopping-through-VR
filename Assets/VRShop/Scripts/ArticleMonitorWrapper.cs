@@ -220,9 +220,14 @@ public class ArticleMonitorWrapper : MonoBehaviour {
         }
         else
         {
-            GlobalControl2.sendValFunc = request2;
-            articleImage = ((DownloadHandlerTexture)request2.downloadHandler).texture;
-            UpdateImage();
+            if (request2.isDone)
+            {
+                GlobalControl2.sendValFunc = request2;
+                articleImage = ((DownloadHandlerTexture)request2.downloadHandler).texture;
+                UpdateImage();
+            }
+            
+            //StopCoroutine(getLink);
         }
     }
 
@@ -241,9 +246,16 @@ public class ArticleMonitorWrapper : MonoBehaviour {
         if (article == assignedArticle)
         {
             Debug.Log("article==assignedArticle is true");
+            if (GlobalControl2.sendValFunc.isDone)
+            {
+                /*                StopCoroutine(getImgRequest(article.Thumbnail));
+                                Debug.Log("Coroutines stopped");*/
+                GlobalControl2.runOrNot = 1;
+            }
+            
             return;
         }
-
+        GlobalControl2.runOrNot = 0;
         Debug.Log("Ayo hai ayo <@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@>");
 
         //getImageLinkStr = article.Thumbnail;
@@ -268,10 +280,10 @@ public class ArticleMonitorWrapper : MonoBehaviour {
         UpdateDescription();
         StartCoroutine(getImgRequest(article.Thumbnail));
 
-        if ((GlobalControl2.sendValFunc).isDone)
+        /*if ((GlobalControl2.sendValFunc).isDone)
         {
             StopCoroutine(getImgRequest(article.Thumbnail));
-        }
+        }*/
         /*UpdateImage();*/
         UpdateColor();
     }

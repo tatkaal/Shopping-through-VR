@@ -21,6 +21,8 @@ public class SearchStart : MonoBehaviour {
 
     public void StartSearch() {
         // Handle the search button
+        GlobalControl2.runOrNot = 0;
+
         searchTextBox.transform.localPosition = transform.localPosition;
         searchTextBox.SetActive(true);
         searchTextBox.GetComponent<ArticleSearch>().EnableListener();

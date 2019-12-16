@@ -76,14 +76,6 @@ public class ArticleSearch : MonoBehaviour {
 
             PerformSearch(searchString);
 
-/*            if (callCount == false)
-            {
-                Debug.Log("Running for once..........Update function................................");
-                PerformSearch(searchString);
-                callCount = true;
-            }
-*/
-
         }
     }
 
